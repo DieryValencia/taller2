@@ -193,4 +193,92 @@ function calcularEdad() {
     document.getElementById("resultado").innerHTML = resultado;
 }
 
+function ejer11() {
+    document.getElementById("enunciado").innerHTML = '<p> 11. Un programa que me capture el salario de un empleado y me realice el descuento de pensión y salud, pero si el salario es superior a 1200000 no le debe descontar.  </p> <input type="button" value="Enviar" onClick="calcularDescuentos()">';  
+}
+function calcularDescuentos() {
+    var salario = parseFloat(prompt("Ingrese el salario del empleado:"));
+    var descuentoPension = 0.04; // 4%
+    var descuentoSalud = 0.04; // 4%
+    var totalDescuento = 0;
+
+    if (salario <= 1200000) {
+        totalDescuento = salario * (descuentoPension + descuentoSalud);
+        var salarioNeto = salario - totalDescuento;
+        document.getElementById("resultado").innerHTML = `Salario: $${salario.toFixed(2)}, Descuento de pensión: $${(salario * descuentoPension).toFixed(2)}, Descuento de salud: $${(salario * descuentoSalud).toFixed(2)}, Total descuento: $${totalDescuento.toFixed(2)}, Salario neto: $${salarioNeto.toFixed(2)}`;
+    } else {
+        document.getElementById("resultado").innerHTML = `Salario superior a $1200000, no se aplican descuentos. Salario neto: $${salario.toFixed(2)}`;
+    }
+}
+
+function ejer12() {
+    document.getElementById("enunciado").innerHTML = '<p> 12. Un programa que, capture el salario de un empleado, y lo divida por 30 dias del mes, también debe capturar los días trabajados y me debe mostrar el total ganado.  </p> <input type="button" value="Enviar" onClick="calcularSalarioDiario()">';  
+}
+function calcularSalarioDiario() {
+    var salario = parseFloat(prompt("Ingrese el salario mensual del empleado:"));
+    var diasTrabajados = parseInt(prompt("Ingrese los días trabajados en el mes:"));
+
+    if (isNaN(salario) || isNaN(diasTrabajados) || diasTrabajados < 0 || diasTrabajados > 30) {
+        document.getElementById("resultado").innerHTML = "Por favor, ingrese valores válidos.";
+        return;
+    }
+
+    var salarioDiario = salario / 30;
+    var totalGanado = salarioDiario * diasTrabajados;
+
+    document.getElementById("resultado").innerHTML = `Salario mensual: $${salario.toFixed(2)}, Salario diario: $${salarioDiario.toFixed(2)}, Días trabajados: ${diasTrabajados}, Total ganado: $${totalGanado.toFixed(2)}`;
+}
+
+function ejer13() {
+    document.getElementById("enunciado").innerHTML = '<p> 13. Mientras a<=1500; contar hasta 1500 e imprimir los números divisibles por 4 y 5 y decir si son pares o impares.  </p> <input type="button" value="Enviar" onClick="contar()">';  
+}
+function contar() {
+    var resultado = "";
+    for (var a = 1; a <= 1500; a++) {
+        if (a % 4 === 0 && a % 5 === 0) {
+            resultado += `${a} es divisible por 4 y 5, `;
+        } else if (a % 4 === 0) {
+            resultado += `${a} es divisible por 4, `;
+        } else if (a % 5 === 0) {
+            resultado += `${a} es divisible por 5, `;
+        }
+        
+        if (a % 2 === 0) {
+            resultado += `${a} es par.<br>`;
+        } else {
+            resultado += `${a} es impar.<br>`;
+        }
+    }
+    document.getElementById("resultado").innerHTML = resultado;
+}
+
+function ejer14() {
+    document.getElementById("enunciado").innerHTML = '<p> 14. Elaborar un algoritmo, que tenga 10 números enteros. El programa debe sumar todos los números que sean múltiplos de 3.  </p> <input type="button" value="Enviar" onClick="sumarMultiplos()">';  
+}
+function sumarMultiplos() {
+    var suma = 0;
+    for (var i = 1; i <= 10; i++) {
+        var numero = parseInt(prompt("Ingrese el número " + i + ":"));
+        if (numero % 3 === 0) {
+            suma += numero;
+        }
+    }
+    document.getElementById("resultado").innerHTML = `La suma de los números múltiplos de 3 es: ${suma}`;
+}
+
+function ejer15() {
+    document.getElementById("enunciado").innerHTML = '<p> 15. Mostrar las 30 primeras potencias de 3 y la suma de ellos. </p> <input type="button" value="Enviar" onClick="potenciasDeTres()">';  
+}
+function potenciasDeTres() {
+    var resultado = "";
+    var suma = 0;
+    for (var i = 0; i < 30; i++) {
+        var potencia = Math.pow(3, i);
+        resultado += `3^${i} = ${potencia}<br>`;
+        suma += potencia;
+    }
+    resultado += `<br>La suma de las 30 primeras potencias de 3 es: ${suma}`;
+    document.getElementById("resultado").innerHTML = resultado;
+}
+
     
