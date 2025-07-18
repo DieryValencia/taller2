@@ -6,6 +6,14 @@
     <title>Taller 02</title>
 
     <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
     body {
         margin: 0;
         font-family: 'Courier New', monospace;
@@ -52,6 +60,24 @@
         margin: 30px auto;
         max-width: 800px;
     }
+
+    .main-content {
+    flex: 1; 
+    padding: 20px;
+    }
+
+    footer {
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    padding: 15px 30px;
+    background-color: #2d2d2d;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    border-top: 2px solid #00ff88;
+    font-family: 'Courier New', monospace;
+}
 </style>
 </head>
 <body>
@@ -77,6 +103,11 @@
     <div id="enunciado"></div>
     <hr>
     <div id="resultado"></div>
+
+    <footer>
+    &copy; 2025 Aprendiz: Diery Valencia. <br> Pruebas de sofware Sena.
+    </footer>
+
     
 </body>
 
